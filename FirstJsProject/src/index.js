@@ -17,8 +17,8 @@ function renderProducts() {
   const nextProducts = products.slice(currentIndex, currentIndex + itemsPerPage);
   nextProducts.forEach(product => {
     productList.insertAdjacentHTML('beforeend', `
-    <div class="product" data-product-id = '${product.id}' >
-    <a href="./card.html?id=${product.id}" class="product-card"> <h3>${product.name}</h3></a>
+    <div class="product" >
+    <a href="./card.html" class="product-card"> <h3>${product.name}</h3></a>
 
      <p><strong>${product.price}</strong> грн</p>
      <button class='product__add'>Додати в корзину</button>
@@ -103,3 +103,52 @@ function startTimer() {
 }
 
 startTimer();
+
+
+/* modal */
+
+const logIn = document.querySelector('.login');
+const logInMod = document.getElementById('modal-login');
+const reg = document.querySelector('.register');
+const regMod = document.getElementById('modal-register');
+const closeBtn = document.querySelectorAll('.close-btn');
+
+logIn.addEventListener('click', () => logInMod.style.display = 'block');
+reg.addEventListener('click', () => regMod.style.display = 'block');
+closeBtn[0].addEventListener('click', () => logInMod.style.display = 'none');
+closeBtn[1].addEventListener('click', () => regMod.style.display = 'none');
+
+
+
+
+
+
+
+// РЕЄСТРАЦІЯ: зберігаємо name, email і password у localStorage
+const regSubmit = document.getElementById('reg-submit');
+
+regSubmit.addEventListener('click', function () {
+  const nameInput = document.getElementById('reg-name');
+  const emailInput = document.getElementById('reg-email');
+  const passInput = document.getElementById('reg-pass');
+
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const password = passInput.value;
+
+  if (name && email && password) {
+    localStorage.setItem('name', name);
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', password);
+    alert('Дані збережено в localStorage');
+    console.log('Ім’я:', localStorage.getItem('name'));
+    console.log('Email:', localStorage.getItem('email'));
+    console.log('Пароль:', localStorage.getItem('password'));
+
+    
+  } else {
+    alert('Заповніть всі поля!');
+  }
+});
+
+

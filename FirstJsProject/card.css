@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* напівпрозорий фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .product-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .product-detail h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #222;
+  }
+  
+  .product-detail p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    text-decoration: none;
+    color: #888;
+    transition: color 0.3s ease;
+  }
+  
+  .close:hover {
+    color: #000;
+    cursor: pointer;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

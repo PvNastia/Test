@@ -14,8 +14,8 @@
 
     <header class="header">
         <div class="auth">
-            <button>Увійти</button>
-            <button>Зареєструватися</button>
+            <button class="login">Увійти</button>
+            <button class="register">Зареєструватися</button>
         </div>
         <div class="sidebar">
             <div class="date">
@@ -30,6 +30,33 @@
         <div class="product-list"> 
         </div>
         <button id="loadMoreBtn">Завантажити ще</button>
+
+<!-- Модальне вікно "Увійти" -->
+<div class="modal-overlay" id="modal-login">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal('modal-login')">✖</button>
+      <h2>Увійти</h2>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Пароль" required>
+        <button type="submit">Увійти</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Модальне вікно "Зареєструватись" -->
+  <div class="modal-overlay" id="modal-register">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal('modal-register')">✖</button>
+      <h2>Зареєструватись</h2>
+      <form>
+        <input type="text" placeholder="Ім'я" required id="reg-name">
+        <input type="email" placeholder="Email" required id="reg-email">
+        <input type="password" placeholder="Пароль" required id="reg-pass">
+        <button type="submit" id="reg-submit">Зареєструватись</button>
+      </form>
+    </div>
+  </div>
     </main>
 
 

@@ -392,7 +392,7 @@ function setBasketLocalStorage(data) {
 function renderProducts() {
   var nextProducts = _productData.products.slice(currentIndex, currentIndex + itemsPerPage);
   nextProducts.forEach(function (product) {
-    productList.insertAdjacentHTML('beforeend', "\n    <div class=\"product\" data-product-id = '".concat(product.id, "' >\n    <a href=\"./card.html?id=").concat(product.id, "\" class=\"product-card\"> <h3>").concat(product.name, "</h3></a>\n\n     <p><strong>").concat(product.price, "</strong> \u0433\u0440\u043D</p>\n     <button class='product__add'>\u0414\u043E\u0434\u0430\u0442\u0438 \u0432 \u043A\u043E\u0440\u0437\u0438\u043D\u0443</button>\n   </div>\n      "));
+    productList.insertAdjacentHTML('beforeend', "\n    <div class=\"product\" >\n    <a href=\"./card.html\" class=\"product-card\"> <h3>".concat(product.name, "</h3></a>\n\n     <p><strong>").concat(product.price, "</strong> \u0433\u0440\u043D</p>\n     <button class='product__add'>\u0414\u043E\u0434\u0430\u0442\u0438 \u0432 \u043A\u043E\u0440\u0437\u0438\u043D\u0443</button>\n   </div>\n      "));
   });
   currentIndex += itemsPerPage;
   checkingActiveButtons(getBasketLocalStorage());
@@ -450,6 +450,48 @@ function startTimer() {
   }, 1000);
 }
 startTimer();
+
+/* modal */
+
+var logIn = document.querySelector('.login');
+var logInMod = document.getElementById('modal-login');
+var reg = document.querySelector('.register');
+var regMod = document.getElementById('modal-register');
+var closeBtn = document.querySelectorAll('.close-btn');
+logIn.addEventListener('click', function () {
+  return logInMod.style.display = 'block';
+});
+reg.addEventListener('click', function () {
+  return regMod.style.display = 'block';
+});
+closeBtn[0].addEventListener('click', function () {
+  return logInMod.style.display = 'none';
+});
+closeBtn[1].addEventListener('click', function () {
+  return regMod.style.display = 'none';
+});
+
+// РЕЄСТРАЦІЯ: зберігаємо name, email і password у localStorage
+var regSubmit = document.getElementById('reg-submit');
+regSubmit.addEventListener('click', function () {
+  var nameInput = document.getElementById('reg-name');
+  var emailInput = document.getElementById('reg-email');
+  var passInput = document.getElementById('reg-pass');
+  var name = nameInput.value;
+  var email = emailInput.value;
+  var password = passInput.value;
+  if (name && email && password) {
+    localStorage.setItem('name', name);
+    localStorage.setItem('email', email);
+    localStorage.setItem('password', password);
+    alert('Дані збережено в localStorage');
+    console.log('Ім’я:', localStorage.getItem('name'));
+    console.log('Email:', localStorage.getItem('email'));
+    console.log('Пароль:', localStorage.getItem('password'));
+  } else {
+    alert('Заповніть всі поля!');
+  }
+});
 },{"./productData.js":"src/productData.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -475,7 +517,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62816" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53178" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
